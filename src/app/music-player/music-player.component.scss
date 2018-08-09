@@ -1,0 +1,34 @@
+.search-wrapper {
+    margin: 1em 2em;
+}
+
+.music-track {
+    display: flex;
+    .track-icon {
+        flex: 1;
+    }
+    .track-details {
+        margin-left: 20px;
+        flex: 3;
+
+        .track-name {
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        .artist-name {
+            font-size: 1em;
+        }
+
+        .album-name {
+            font-size: 0.75em;
+        }
+    }
+}
+
+.music-player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5em;
+}

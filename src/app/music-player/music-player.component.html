@@ -1,0 +1,20 @@
+<div class="search-wrapper">
+    <div class="input-group mb-3">
+      <input #searchBox id="search-box" class="form-control" (keyup)="search(searchBox.value)"  placeholder="Search artist" aria-label="Search by artist name"/>
+    </div>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let hero of heroes$ | async" >
+    <a class="music-track" (click)="onTrackClicked(hero)">
+      <div class="track-icon">
+          <img [src]="hero.artworkUrl60">
+      </div>
+      <div class="track-details">
+        <h6 class="track-name">{{hero.trackName}}</h6>
+        <h6 class="artist-name">{{hero.artistName}}</h6>
+        <h6 class="album-name">{{hero.collectionName}}</h6>
+      </div>
+    </a>
+  </li>
+</ul>

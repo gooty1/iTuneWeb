@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+      "target": "http://itunes.apple.com",
+      "pathRewrite": {"^/api" : ""},
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }
