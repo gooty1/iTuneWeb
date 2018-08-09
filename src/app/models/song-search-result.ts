@@ -1,4 +1,4 @@
-import { SongModel } from "./song-model";
+import { SongModel } from './song-model';
 
 export interface SongSearchResult {
     resultCount?: number;

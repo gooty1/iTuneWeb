@@ -1,0 +1,18 @@
+<div class="album-details">
+  <div class="control-panel">
+      <img [src]="track.artworkUrl100">
+      <fa-icon [icon]="faPlay" *ngIf="!isTrackPlaying" (click)="play($event)"></fa-icon>
+      <fa-icon [icon]="faPause" *ngIf="isTrackPlaying" (click)="pause($event)"></fa-icon>
+  </div>
+
+  <ul class="list-group">
+      <li class="list-group-item" *ngFor="let track of tracks$ | async; index as i;" >
+        <a class="music-track">
+          <div class="track-details">
+            <h6 class="track-name">{{i}}. {{track.trackName}}</h6>
+          </div>
+        </a>
+      </li>
+  </ul>
+</div>
+
