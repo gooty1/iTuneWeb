@@ -16,6 +16,7 @@ export class MusicPlayerComponent implements OnInit {
     private isMobile: boolean;
 
     constructor(private musicService: MusicService) {
+      // We need to detect if it is mobile browser to decide whether or not to perform an album lookup
       this.isMobile = isMobile();
     }
 
