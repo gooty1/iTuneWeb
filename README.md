@@ -12,5 +12,5 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app 
 
 ## Supporting Browser
 
-Chrome
-NOTE: If you are viewing mobile view, remember to use chrome dev tool to switch to mobile and reload, simply resizing the screen won't help since there are some optimization for mobile view.
+Chrome Only
+NOTE: If you are viewing mobile view, remember to use chrome dev tool F12 / Command + alt + i to switch to mobile and RELOAD, simply resizing the screen won't help since there are some optimization for mobile view.

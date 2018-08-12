@@ -1,0 +1,21 @@
+@import '../../../styles/common';
+
+.control-panel {
+    margin: 2em auto;
+    @include flex-center-column;
+    img {
+        margin-bottom: 2em;
+    }
+}
+
+.album-playing {
+    border-radius: 5em;
+    animation: rotating 6s infinite;
+    animation-timing-function: linear;
+    transition: border-radius 200ms ease-in-out;
+}
+
+@keyframes rotating {
+    0%   { transform:rotate(0deg); }
+    100%   { transform:rotate(360deg); }
+}

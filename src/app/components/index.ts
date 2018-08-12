@@ -1,3 +1,2 @@
-export * from './media-player';
-export * from './music-player';
-export * from './media-player-desktop';
+export * from './+music-player';
+export * from './common'

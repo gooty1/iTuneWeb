@@ -16,9 +16,16 @@
         }
     }
 
-    .control-panel {
+    .track-control {
         flex: 4;
-        display: flex;
-        justify-content: space-around;
+        padding-left: 1em;
+        .control-panel {
+            display: flex;
+            justify-content: space-around;
+        }
+        .progress {
+            margin-top: 2em;
+            height: 0.3em;
+        }
     }
 }

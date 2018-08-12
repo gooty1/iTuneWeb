@@ -1,28 +1,37 @@
+@import '../../styles/common';
+
 .search-wrapper {
     margin: 1em 2em;
 }
 
 .music-track {
     display: flex;
+
     .track-icon {
         flex: 1;
     }
+
     .track-details {
         margin-left: 20px;
         flex: 3;
 
         .track-name {
-            font-size: 1.15em;
+            font-size: 0.9em;
             font-weight: bold;
         }
 
         .artist-name {
-            font-size: 1em;
+            font-size: 0.8em;
         }
 
         .album-name {
             font-size: 0.75em;
         }
+    }
+
+    .track-playing {
+        opacity: 0.6;
+        animation: breath 3s infinite; /* IE 10+, Fx 29+ */
     }
 }
 
@@ -30,8 +39,10 @@
     max-width: 1024px;
     margin: 0 auto;
     display: flex;
+
     &.is-mobile {
         display: block;
+        
         .search-section {
             box-shadow: 0px 2px 2px 0px #ccc;
         }
@@ -40,10 +51,21 @@
     .search-section {
         flex: 1;
         box-shadow: 2px 2px 2px 2px #ccc;
+
+        .loading {
+            @include flex-center;
+            @include full-screen-drop;
+        }
     }
 
     .detail-section {
         padding-left: 1em;
-        flex: 3;
+        flex: 2;
     }
+}
+
+@keyframes breath {
+    0%   { opacity: 0.2; }
+    50% { opacity: 1; }
+    100%   { opacity: 0.2; }
 }

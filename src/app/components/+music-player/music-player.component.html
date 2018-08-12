@@ -17,13 +17,18 @@
             <h6 class="artist-name">{{track.artistName}}</h6>
             <h6 class="album-name">{{track.collectionName}}</h6>
           </div>
+          <fa-icon [icon]="faMusic" class="fa-lg track-playing" *ngIf="isMobile && selectedTrack === track"></fa-icon>
         </a>
       </li>
     </ul>
+
+    <div class="loading" [@fadeIn] *ngIf="isLoading">
+      <span>Loading...</span>
+    </div>
   </section>
 
   <section class="detail-section" *ngIf="!isMobile && selectedTrack">
-      <media-player-desktop [track]="selectedTrack" *ngIf="!isMobile"></media-player-desktop>
+      <media-player-desktop [track]="selectedTrack" [@slideIn] *ngIf="!isMobile"></media-player-desktop>
   </section>
-  <media-player [track]="selectedTrack" *ngIf="isMobile"></media-player>
+  <media-player [track]="selectedTrack" *ngIf="isMobile && selectedTrack"></media-player>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, pluck, filter } from 'rxjs/operators';
+import { catchError, filter, switchMap } from 'rxjs/operators';
 import { SongSearchResult, SongModel } from '../models';
 
 @Injectable({ providedIn: 'root' })
@@ -15,9 +15,7 @@ export class MusicService {
     if (!term.trim()) {
       return of([]);
     }
-    return this.query('search', `term=${term}`).pipe(
-      pluck('results')
-    );;
+    return this.query('search', `term=${term}`);
   }
 
   lookupAlbum(collectionId: number): Observable<SongModel[]> {
@@ -25,13 +23,18 @@ export class MusicService {
       return of([]);
     }
     return this.query('lookup', `id=${collectionId}&entity=song`).pipe(
-      pluck('results'),
+      switchMap((result: SongModel[]) => {
+        return of(result.filter(item => item.wrapperType === 'track'));
+      }),
     );
   }
 
-  query(action: string, keys: string): Observable<SongSearchResult> {
+  query(action: string, keys: string): Observable<SongModel[]> {
     return this.http.get<SongSearchResult>(`${this.musicsUrl}${action}?${keys}`).pipe(
-      catchError(this.handleError<SongSearchResult>(action, {}))
+      switchMap((result: SongSearchResult) => {
+        return of(result.results);
+      }),
+      catchError(this.handleError<SongModel[]>(action, []))
     );
   }
 

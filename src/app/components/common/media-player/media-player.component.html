@@ -1,0 +1,21 @@
+<div class="media-player" [@slideUp] *ngIf="track">
+    <div class="track-icon">
+        <img [src]="track.artworkUrl60">
+    </div>
+    <div class="track-control">
+        <div class="control-panel">
+            <fa-icon [icon]="faFastBackward"></fa-icon>
+            <fa-icon [icon]="faPlay" [hidden]="isTrackPlaying" (click)="play($event)"></fa-icon>
+            <fa-icon [icon]="faPause" [hidden]="!isTrackPlaying" (click)="pause($event)"></fa-icon>
+            <fa-icon [icon]="faFastForward"></fa-icon>
+        </div>
+
+        <div class="progress">
+            <div [style.width]="progress" class="progress-bar bg-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <audio #audio class="d-none">
+            <source type="audio/mpeg" [src]="track.previewUrl"/>
+        </audio>
+    </div>
+</div>

@@ -1,9 +1,0 @@
-@import '../../styles/common';
-
-.control-panel {
-    margin: 2em auto;
-    @include flex-center-column;
-    img {
-        margin-bottom: 2em;
-    }
-}
